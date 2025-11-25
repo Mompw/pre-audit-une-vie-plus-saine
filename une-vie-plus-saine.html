@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pré-Audit SEO - Une Vie Plus Saine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+            color: #004027;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #004027 0%, #005a35 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 64, 39, 0.3);
+        }
+
+        .header::before {
+            content: "🌿";
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            right: -50px;
+            top: -50px;
+            transform: rotate(-15deg);
+        }
+
+        .header::after {
+            content: "🍃";
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            left: -30px;
+            bottom: -40px;
+            transform: rotate(25deg);
+        }
+
+        /* NOUVEAU STYLE POUR CENTRER LE LOGO */
+        .header-logo {
+            display: block; 
+            margin: 0 auto 20px auto; /* Centre l'image et ajoute de la marge en dessous */
+            max-width: 200px; /* Taille maximale du logo, à ajuster */
+            height: auto;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .audit-info {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 15px;
+            min-width: 200px;
+        }
+
+        .info-item .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .info-item .label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .info-item .value {
+            color: #004027;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #d16b79, #004027);
+        }
+
+        /* Correction CSS pour la bordure des sections à priorité */
+        .critical {
+            border-left: 5px solid #d16b79;
+        }
+        .critical::before { 
+            content: none;
+        }
+
+        .high-priority {
+            border-left: 5px solid #ff9800;
+        }
+        .high-priority::before { 
+             content: none; 
+        }
+
+        .medium-priority {
+            border-left: 5px solid #004027;
+        }
+        .medium-priority::before {
+             content: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-critical {
+            background: #d16b79;
+            color: white;
+        }
+
+        .badge-high {
+            background: #ff9800;
+            color: white;
+        }
+
+        .badge-medium {
+            background: #004027;
+            color: white;
+        }
+
+        .section h2 {
+            color: #004027;
+            font-size: 1.8em;
+            flex-grow: 1;
+        }
+
+        .icon-large {
+            font-size: 2.5em;
+            margin-right: 20px;
+        }
+
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .story {
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe8ec 100%);
+            border-left: 4px solid #d16b79;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .impact-box.green {
+            background: linear-gradient(135deg, #e8f5f9 0%, #c8e6c9 100%);
+            border-left: 4px solid #004027;
+        }
+
+        .impact-box h3 {
+            color: #d16b79;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .impact-box.green h3 {
+            color: #004027;
+        }
+
+        .action-list {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .action-list h4 {
+            color: #004027;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .action-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .action-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #333;
+        }
+
+        .action-list li::before {
+            content: "🌱";
+            position: absolute;
+            left: 0;
+        }
+
+        .priority-table {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+            margin-bottom: 40px; 
+        }
+
+        .priority-table h2 {
+            color: #004027;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #004027 0%, #005a35 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .priority-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .p-critical {
+            background: #d16b79;
+        }
+
+        .p-high {
+            background: #ff9800;
+        }
+
+        .p-medium {
+            background: #004027;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .stat-highlight {
+            display: inline-block;
+            background: #d16b79;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 0 4px;
+        }
+
+        .leaf-divider {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2em;
+            color: #004027;
+            opacity: 0.3;
+        }
+
+        /* Styles spécifiques aux prochaines étapes */
+        .prochaine-etapes p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: #004027;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .highlight-box li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .badge {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+            }
+        }
+
+        /* Section Contact */
+        .contact-section {
+            background: #004027;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 64, 39, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: "📞";
+            position: absolute;
+            font-size: 180px;
+            opacity: 0.1;
+            right: -40px;
+            top: -40px;
+            transform: rotate(-20deg);
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-intro {
+            font-size: 1.3em;
+            margin: 20px 0 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .linkedin-btn {
+            background: white;
+            color: #0077b5;
+        }
+
+        .linkedin-btn:hover {
+            background: #0077b5;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 119, 181, 0.4);
+        }
+
+        .email-btn {
+            background: white;
+            color: #d16b79;
+        }
+
+        .email-btn:hover {
+            background: #d16b79;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(209, 107, 121, 0.4);
+        }
+
+        .btn-icon {
+            font-size: 1.3em;
+        }
+
+        .contact-signature {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .signature-title {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <img src="image/logo-une-vie-plus-saine.png" alt="une vie plus saine" class="header-logo">
+                <h1>PRÉ-AUDIT SEO</h1>
+                <div class="subtitle">Une Vie Plus Saine • www.unevieplussaine.fr</div>
+            </div>
+        </div>
+
+        <div class="audit-info">
+            <div class="info-item">
+                <div class="icon">🔍</div>
+                <div class="label">Outil Utilisé</div>
+                <div class="value">Screaming Frog</div>
+            </div>
+            <div class="info-item">
+                <div class="icon">📊</div>
+                <div class="label">URLs Analysées</div>
+                <div class="value">500</div>
+            </div>
+            <div class="info-item">
+                <div class="icon">📅</div>
+                <div class="label">Date</div>
+                <div class="value">2025</div>
+            </div>
+        </div>
+
+        <div class="section critical">
+            <div class="section-header">
+                <span class="icon-large">🚨</span>
+                <h2>Votre Site est Freiné par Google</h2>
+                <span class="badge badge-critical">Urgence Maximale</span>
+            </div>
+
+            <div class="content-block">
+                <p class="story">
+                Imaginez que vous organisiez une grande fête pour présenter vos nouveaux produits naturels. Vous avez tout préparé : un magnifique espace, des échantillons, des présentations... 
+                Mais le vigile à l'entrée bloque <strong>régulièrement</strong> vos invités les plus importants en leur disant "désolé, trop de monde, revenez plus tard"                </p>
+                
+                <p class="story">
+                 C'est exactement ce qui se passe avec votre site. Votre serveur renvoie une erreur technique appelée <span class="stat-highlight">429 "Too Many Requests"</span> au robot d'exploration de Google, appelé Googlebot. 
+                 Cette erreur se déclenche quand le robot tente d'accéder à trop de pages en peu de temps.
+                </p>
+
+                <div class="impact-box">
+                    <h3>💔 Impact Réel sur Votre Business</h3>
+                    <p><strong>Ralentissement de l'indexation :</strong> : Le robot de Google est ralenti dans son exploration de votre catalogue. Il mettra beaucoup plus de temps à découvrir vos nouvelles fiches produits 
+                        ou à mettre à jour les informations sur les anciennes.</p>
+                </div>
+
+                <div class="action-list">
+                    <h4>🌱 Actions Correctives Immédiates</h4>
+                    <ul>
+                        <li>Analyser les logs serveur pour confirmer que Googlebot est effectivement bloqué</li>
+                        <li>Mettre le User Agent de Googlebot en liste blanche dans votre système de sécurité</li>
+                        <li>Ajuster les paramètres de rate limiting pour équilibrer protection et accessibilité SEO</li>
+                        <li>Tester l'exploration avec la Google Search Console pour valider la correction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section critical">
+            <div class="section-header">
+                <span class="icon-large">🔒</span>
+                <h2>Vos Produits Existent... Mais Sont Invisibles</h2>
+                <span class="badge badge-critical">Critique</span>
+            </div>
+
+            <div class="content-block">
+                <p class="story">
+                    Vous avez soigneusement créé des fiches produits détaillées pour vos articles naturels : descriptions complètes, bienfaits, conseils d'utilisation. Pourtant, ces pages contiennent une instruction contradictoire qui déroute complètement Google.
+                </p>
+                
+                <p class="story">
+                    Ces pages produits indiquent à Google quelle version de la page privilégier (la "canonique"), mais cette version pointée est elle-même marquée comme "Non Indexable". C'est comme si vous disiez à quelqu'un : "Pour trouver mon magasin, suis cette flèche" et que la flèche menait vers un mur avec écrit "Interdit d'entrer". Google se retrouve dans une impasse technique et abandonne simplement l'indexation de ces produits.
+                </p>
+
+                <div class="impact-box">
+                    <h3>📉 Conséquence Directe</h3>
+                    <p><strong>Perte totale de visibilité produit</strong> : Peu importe la qualité de vos descriptions, les bienfaits détaillés de vos produits naturels, ou la pertinence de vos mots-clés. Google ignore complètement ces pages. Pour le web, c'est comme si ces produits n'existaient pas. Aucun client potentiel ne pourra les trouver via une recherche organique.</p>
+                </div>
+
+                <div class="action-list">
+                    <h4>🌱 Plan de Résolution</h4>
+                    <ul>
+                        <li>Analyser le code du template de page produit pour identifier la directive de blocage</li>
+                        <li>Supprimer toute balise "noindex" inappropriée dans le code source</li>
+                        <li>Vérifier le fichier robots.txt pour éliminer toute directive Disallow bloquant les produits</li>
+                        <li>Corriger les balises canonical pour pointer vers des URLs indexables</li>
+                        <li>Demander une réindexation via Google Search Console après correction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaf-divider">🌿 🍃 🌿</div>
+
+        <div class="section high-priority">
+            <div class="section-header">
+                <span class="icon-large">🌳</span>
+                <h2>Une Forêt Trop Dense Étouffe Vos Catégories Principales</h2>
+                <span class="badge badge-high">Haute Priorité</span>
+            </div>
+
+            <div class="content-block">
+                <p class="story">
+                    Votre page d'accueil est comme un jardin luxuriant où vous auriez planté <span class="stat-highlight">117 arbres</span> différents au même endroit. Chaque catégorie et sous-catégorie de votre menu principal reçoit un lien depuis la page d'accueil, ce qui semble généreux au premier abord.
+                </p>
+                
+                <p class="story">
+                    Mais en SEO, la page d'accueil possède une "autorité" limitée qu'elle doit distribuer entre tous ses liens. Plus il y a de liens, moins chacun reçoit de puissance. Avec 117 liens, chaque catégorie ne reçoit qu'une infime fraction de cette autorité. Vos catégories stratégiques (comme "Protections solaires" ou "Hygiène bucco-dentaire") n'ont pas la force nécessaire pour se positionner face à vos concurrents qui concentrent leur autorité sur moins de liens.
+                </p>
+
+                <div class="impact-box">
+                    <h3>⚡ Dilution de la Force SEO</h3>
+                    <p><strong>Perte de compétitivité</strong> : Vos catégories principales manquent du "boost" nécessaire pour apparaître en première page de Google. Les sites concurrents qui concentrent leur linking interne sur leurs catégories clés vous surpassent mécaniquement, même si votre contenu est de meilleure qualité.</p>
+                </div>
+
+                <div class="action-list">
+                    <h4>🌱 Restructuration Recommandée</h4>
+                    <ul>
+                        <li>Simplifier le menu principal pour ne conserver que les catégories de niveau 1 et 2 les plus stratégiques</li>
+                        <li>Déplacer les sous-catégories tertiaires dans les pages de catégorie mères</li>
+                        <li>Utiliser le pied de page pour les liens secondaires</li>
+                        <li>Concentrer l'autorité de la homepage sur 15-25 liens maximum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section high-priority">
+            <div class="section-header">
+                <span class="icon-large">👯</span>
+                <h2>Des Pages Jumelles Gaspillent Votre Budget d'Exploration</h2>
+                <span class="badge badge-high">Haute Priorité</span>
+            </div>
+
+            <div class="content-block">
+                <p class="story">
+                Votre site génère des URLs jumelles (dupliquées) pour la même fiche ou page de catégorie. 
+                Ce problème se manifeste sous deux formes principales qui gaspillent toutes deux le budget d'exploration :</p>
+                <div class="action-list">
+                    <ul>
+                        <li><strong>Duplication par Chemin d'Accès :</strong> Le même produit est accessible via un chemin long (incluant le nom de la collection) ou un chemin court (le chemin canonique simplifié).</li>
+                        <p>Exemple : /collections/ma-selection-vacances/products/savon-noir... vs /products/savon-noir...</p>
+                        <li><strong>Duplication par Casse (Majuscules/Minuscules) :</strong> Le même contenu de catégorie est accessible par deux URLs différentes à cause de l'utilisation de majuscules.</li>
+                        
+                        <p>Exemple : /collections/maison/Entretien vs /collections/maison/entretien</p>
+                    </ul>
+                    </div>
+                <div class="impact-box">
+                    <h3>⏱️ Temps et Autorité Gaspillés</h3>
+                    <p><strong>Inefficacité du crawl</strong> : Google explore des pages (<span class="stat-highlight">119 pages dupliquées</span>dans notre pré-audit) en double au lieu de découvrir votre nouveau contenu. Le risque : vos derniers produits naturels restent invisibles plus longtemps, et vos pages principales n'atteignent jamais leur plein potentiel de classement.</p>
+                </div>
+
+                <div class="action-list">
+                    <h4>🌱 Corrections Techniques</h4>
+                    <ul>
+                        <li>Mettre en place des redirections 301 permanentes des URLs avec majuscules vers leurs équivalents en minuscules</li>
+                        <li>Configurer le serveur pour forcer les minuscules sur toutes les URLs futures</li>
+                        <li>Vérifier tous les liens internes et les corriger pour utiliser uniquement les minuscules</li>
+                        <li>Soumettre les URLs canoniques via le sitemap XML mis à jour</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section medium-priority">
+            <div class="section-header">
+                <span class="icon-large">💔</span>
+                <h2>Un Lien Cassé Coupe le Lien avec Vos Clients</h2>
+                <span class="badge badge-medium">Priorité</span>
+            </div>
+
+            <div class="content-block">
+                <p class="story">
+                    Imaginez un client hésitant entre deux produits naturels pour son bien-être. Il a une question sur la composition ou l'utilisation. Il clique sur votre lien de contact par email... et tombe sur une page d'<span class="stat-highlight">Erreur 404</span>. La frustration s'installe, la confiance s'érode, et il y a de fortes chances qu'il parte chez un concurrent où la communication est plus fluide.
+                </p>
+
+                <div class="impact-box">
+                    <h3>🛒 Impact sur les Conversions</h3>
+                    <p><strong>Perte de ventes potentielles</strong> : Les clients avec des questions pré-achat ne peuvent pas vous joindre facilement, augmentant le taux d'abandon de panier. L'efficacité de votre service client en ligne est compromise, ce qui affecte directement votre taux de conversion.</p>
+                </div>
+
+                <div class="action-list">
+                    <h4>🌱 Correction Immédiate</h4>
+                    <ul>
+                        <li>Corriger le lien pour utiliser le format standard de messagerie (mailto:votre-email@domaine.fr)</li>
+                        <li>Tester le lien sur différents navigateurs et appareils</li>
+                        <li>Envisager d'ajouter un formulaire de contact alternatif</li>
+                        <li>Vérifier tous les autres liens de contact sur le site</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section medium-priority">
+            <div class="section-header">
+                <span class="icon-large">🔗</span>
+                <h2>La Pagination Mène Google dans des Impasses</h2>
+                <span class="badge badge-medium">Priorité</span>
+            </div>
+
+            <div class="content-block">
+                <p class="story">
+                    Vos collections de produits s'étendent sur plusieurs pages (page 1, 2, 3...). Le système de pagination est crucial pour que Google découvre tous vos produits en profondeur. Mais actuellement, les liens de pagination utilisent les mauvaises URLs : celles avec les erreurs de casse ou des chemins non canoniques.
+                </p>
+                
+                <p class="story">
+                    Le robot de Google suit ces liens défectueux et se retrouve redirigé ou dans des chaînes d'URLs inutiles. Résultat : les produits situés en page 3, 4 ou 5 de vos collections sont découverts avec un retard considérable, voire pas du tout si le budget de crawl est épuisé avant.
+                </p>
+
+                <div class="impact-box green">
+                    <h3>🐌 Découverte Ralentie</h3>
+                    <p><strong>Nouveaux produits invisibles</strong> : Les articles naturels que vous ajoutez en profondeur dans vos collections restent cachés de Google pendant des semaines. Vos efforts pour enrichir votre catalogue ne portent pas leurs fruits aussi rapidement qu'ils le devraient.</p>
+                </div>
+
+                <div class="action-list">
+                    <h4>🌱 Optimisation de la Pagination</h4>
+                    <ul>
+                        <li>Corriger les templates de pagination pour qu'ils génèrent toujours des URLs canoniques en minuscules</li>
+                        <li>Implémenter correctement les balises rel="next" et rel="prev" sur les pages paginées</li>
+                        <li>Vérifier que chaque page de pagination est accessible en un seul clic (pas de redirections)</li>
+                        <li>Tester le parcours complet d'une collection avec plusieurs pages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="leaf-divider">🌿 🍃 🌿</div> 
+
+        <div class="priority-table">
+            <h2>📋 Synthèse et Plan d'Action Priorisé</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Priorité</th>
+                        <th>Problématique</th>
+                        <th>Impact Business</th>
+                        <th>Action Clé</th>
+                        <th>Délai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="priority-indicator p-critical"></span>CRITIQUE</td>
+                        <td>Erreur 429 bloquant Googlebot</td>
+                        <td>Blocage total de l'indexation</td>
+                        <td>Mettre Googlebot en liste blanche + ajuster rate limiting</td>
+                        <td><strong>Immédiat</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-indicator p-critical"></span>CRITIQUE</td>
+                        <td>Pages produits non indexables</td>
+                        <td>Perte de visibilité catalogue</td>
+                        <td>Supprimer les directives noindex et corriger les canonicals</td>
+                        <td><strong>Immédiat</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-indicator p-high"></span>HAUTE</td>
+                        <td>117 liens dans le menu principal</td>
+                        <td>Dilution de l'autorité SEO</td>
+                        <td>Simplifier le menu à 15-25 liens stratégiques maximum</td>
+                        <td>1-2 semaines</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-indicator p-high"></span>HAUTE</td>
+                        <td>119 pages dupliquées (casse)</td>
+                        <td>Gaspillage du budget de crawl</td>
+                        <td>Redirections 301 + forcer minuscules serveur</td>
+                        <td>1-2 semaines</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-indicator p-medium"></span>MOYENNE</td>
+                        <td>Lien contact cassé (404)</td>
+                        <td>Perte de conversions</td>
+                        <td>Corriger format mailto: + test navigateurs</td>
+                        <td>24-48h</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-indicator p-medium"></span>MOYENNE</td>
+                        <td>Pagination avec URLs incorrectes</td>
+                        <td>Découverte produits ralentie</td>
+                        <td>Corriger templates pagination + implémenter rel next/prev</td>
+                        <td>1-2 semaines</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="leaf-divider">🌿 🍃 🌿</div> 
+
+        <div class="section prochaine-etapes">
+            <div class="section-header">
+                <span class="icon-large">🎯</span>
+                <h2>Prochaines étapes</h2>
+            </div>
+            <p>J'ai identifié des freins techniques critiques qui, une fois résolus, transformeront la performance, la visibilité et la capacité de conversion de unevieplussaine.fr. 
+                Le plan d'action immédiat se concentre sur les corrections techniques (Code 429, Indexation Cassée) et la restructuration de l'architecture pour optimiser la circulation de l'autorité SEO.
+                Mais ce pré-audit, réalisé avec les outils de crawl publics, n'est que la première étape. Pour aller plus loin et transformer cette stratégie en résultats durables et mesurables pour un e-shop de produits naturels, voici comment nous pouvons collaborer :</p>
+           
+            <div class="highlight-box">
+                <h3>🔍 1. Phase d'Urgence et Audit Technique Complet</h3>
+                <p>L'urgence est de débloquer Googlebot et d'assurer que vos produits sont indexables.</p>
+                <ul>
+                    <li><strong>Analyse de Logs Serveur et Déblocage du Code 429</strong>: Nous travaillerons avec votre équipe technique pour analyser les logs (les "journaux de bord" du serveur) afin de confirmer l'impact exact sur Googlebot et de mettre en œuvre la mise en liste blanche du robot.</li>
+                    <li><strong>Résolution du Problème d'Indexation (Canonique Cassée)</strong>: Nous déterminerons la cause précise du statut "Non Indexable" sur vos pages produits canoniques et corrigerons la faille dans le modèle de page pour débloquer immédiatement l'indexation de tout votre catalogue.</li>
+                    <li><strong>Restructuration Technique :</strong> Correction des 119 problèmes de duplication liés à la casse des URLs (majuscules/minuscules) et correction du lien cassé.</li> 
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>💰 2. Audit Stratégique Approfondi & Stratégie Business</h3>
+                <p>Une fois la base technique saine, nous passerons à l'optimisation stratégique et à l'analyse de la performance réelle.</p>
+                <ul>
+                    <li><strong>Accès aux Outils Clés (GSC et GA) :</strong> Accéder à Google Search Console et Google Analytics nous permettra d'analyser en profondeur le trafic réel, les requêtes exactes utilisées par vos visiteurs et la performance de votre contenu actuel.</li>
+                    <li><strong>Optimisation du Maillage Interne :</strong> Nous réviserons l'architecture de votre site (incluant la simplification du menu) pour concentrer l'autorité sur les collections et produits qui génèrent le plus de ventes.</li>
+                    <li><strong>Analyse de la Concurrence Sémantique :</strong> Identifier les mots-clés et les intentions de recherche spécifiques à l'univers du produit naturel que vos concurrents n'adressent pas encore.</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>✍️ 3. Stratégie Éditoriale "Produits Naturels"</h3>
+                <p>Pour un e-shop de produits naturels, la confiance et l'expertise sont primordiales.</p>
+                <ul>
+                    <li><strong>Audit des Fiches Produits :</strong> Analyse des balises titres (Titles) et des descriptions pour augmenter le Taux de Clic (CTR) dans les résultats de recherche et améliorer la clarté.</li>
+                    <li><strong>Contenu de Confiance :</strong> Développement d'une stratégie de contenu qui répond aux questions profondes des consommateurs sur l'origine, l'impact écologique et les certifications de vos produits.</li>
+                    <li><strong>Développement de "Clusters Thématiques" :</strong> Création de guides et d'articles d'autorité autour de vos grandes catégories ("Maison Durable", "Hygiène Zéro Déchet") pour asseoir votre expertise et capter un trafic qualifié en amont de l'achat.</li>
+                </ul>
+            </div>
+            <p>Chaque élément de ce pré-audit a été pensé pour vous donner une vision claire des opportunités immédiates et futures. Une vie plus saine mérite une visibilité en ligne qui soit à la hauteur de la qualité et de l'engagement de ses produits.</p>
+
+        </div>
+
+        <div class="contact-section">
+            <div class="contact-header">
+                <span class="contact-icon">✨</span>
+                <h2>Prêt à Transformer Votre SEO ?</h2>
+            </div>
+            <p class="contact-intro">
+                Ces points critiques nécessitent une action immédiate. Contactez-moi pour mettre en place un plan de correction technique et stratégique adapté à un e-commerce de produits naturels.
+            </p>
+
+            <div class="contact-buttons">
+                <a href="https://www.linkedin.com/in/profil" target="_blank" class="contact-btn linkedin-btn">
+                    <span class="btn-icon">🔗</span> LinkedIn
+                </a>
+                <a href="mailto:contact@example.com" class="contact-btn email-btn">
+                    <span class="btn-icon">📧</span> Par Email
+                </a>
+            </div>
+
+            <div class="contact-signature">
+                <div class="signature-name">Wedson Momperousse</div>
+                <div class="signature-title">Consultant SEO & Stratégie Digitale</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Pré-Audit réalisé pour Une Vie Plus Saine. Tous droits réservés.</p>
+        </div>
+
+    </div>
+</body>
+</html>
